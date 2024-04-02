@@ -6,18 +6,16 @@ on:
 
     
 
-jobs:
-  test:
-    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    
+jobs:    
 
   build:
 
     runs-on: ubuntu-latest
 
     steps:
-    
-    - uses: actions/checkout@v3
+    - name: Checkout
+    - uses: actions/checkout@v4
+    - run: echo 'Pruebas SAST'
+      
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
