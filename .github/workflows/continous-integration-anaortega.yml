@@ -8,14 +8,14 @@ on:
 
 jobs:    
 
-  build:
-
+  check-links:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout
-    - uses: actions/checkout@v4
-    - run: echo 'Pruebas SAST'
+      - name: Pruebas de SAST
+        run: echo "Ejecución de Pruebas de SAST"  
+
+      - name: Credentials 
+
       
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Build docker image
+        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
